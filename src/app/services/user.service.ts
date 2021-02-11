@@ -22,7 +22,7 @@ export class UserService {
       email,
       password
     }).pipe(
-      tap((response: any) => localStorage.setItem('token', response?.token)),
+      tap((response: any) => localStorage.setItem('token', response?.token)), // Used for is-signed-in guard
       map((response: any) => !!response?.token),
       catchError(() => of(false))
     );
