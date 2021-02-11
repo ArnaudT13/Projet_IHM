@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/interfaces/user.interface';
+import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -16,12 +17,9 @@ export class HomePage implements OnInit {
 
   constructor(
     public router: Router,
-    public userService: UserService
+    public userService: UserService,
+    public loginService: LoginService
   ) {}
-
-  async selectedUser(id: number) {
-    await this.router.navigate(['user-detail', id]);
-  }
 
   ngOnInit(): void {
     this.userService.getUserList();
@@ -32,6 +30,15 @@ export class HomePage implements OnInit {
         }
     );
     this.userService.emitUserListSubject();*/
+  }
+
+  async selectedUser(id: number) {
+    await this.router.navigate(['user-detail', id]);
+  }
+
+  logout(){
+    this.loginService.logout();
+    this.router.navigateByUrl('login');
   }
   
 

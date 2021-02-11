@@ -12,7 +12,7 @@ export class LoginService {
     public httpApi: HttpClient
   ) { }
 
-    /**
+  /**
    * Function used to authentificate users in the application
    * @param email The email of the user
    * @param password The password of the user
@@ -26,5 +26,12 @@ export class LoginService {
       map((response: any) => !!response?.token),
       catchError(() => of(false))
     );
+  }
+
+  /**
+   * Function used to deconnect user of the application
+   */
+  logout() {
+    localStorage.removeItem('token');
   }
 }
