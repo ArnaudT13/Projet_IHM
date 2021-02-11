@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sign in</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form #loginForm="ngForm">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Email address</ion-label>
+      <ion-input id="email-input" name="email" type="email"
+        [(ngModel)]="email"
+        #emailInput=ngModel
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input id="password-input" name="password" type="password"
+       [(ngModel)]="password"
+       #passwordInput=ngModel
+       required
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+</form>
+<ion-button id="signin-button" expand="full"
+      (click)="signIn()" [disabled]="!loginForm.form.valid">
+        Sign in
+      <ion-icon slot="end" name="log-in-outline"></ion-icon>
+    </ion-button>
+</ion-content>
+
