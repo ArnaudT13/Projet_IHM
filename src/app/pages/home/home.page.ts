@@ -48,4 +48,11 @@ export class HomePage implements OnInit {
     this.router.navigateByUrl('login');
   }
 
+  /**
+   * Function used to insert user in the application
+   */
+  async insertUser(){
+    await this.router.navigateByUrl('insert-user');
+  }
+
 }

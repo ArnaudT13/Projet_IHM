@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Insert User</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+    <ion-item class="form-group">
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" formControlName="name" class="form-control" required></ion-input>
+    </ion-item>
+    <ion-item class="form-group">
+      <ion-label position="floating">Job</ion-label>
+      <ion-input type="text" formControlName="job" class="form-control" required></ion-input>
+    </ion-item>
+
+    <ion-button  type="submit" expand="block" fill="clear" shape="round">
+      Insert user
+    </ion-button>
+  </form>
+</ion-content>

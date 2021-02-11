@@ -18,6 +18,11 @@ const routes: Routes = [
     canActivate: [ IsSignedInGuard ]
   },
   {
+    path: 'insert-user',
+    loadChildren: () => import('./pages/insert-user/insert-user.module').then( m => m.InsertUserPageModule),
+    canActivate: [ IsSignedInGuard ]
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
