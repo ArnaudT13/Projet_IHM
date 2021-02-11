@@ -13,6 +13,11 @@ const routes: Routes = [
     canActivate: [ IsSignedInGuard ]
   },
   {
+    path: 'user-details/:id',
+    loadChildren: () => import('./pages/user-details/user-details.module').then( m => m.UserDetailsPageModule),
+    canActivate: [ IsSignedInGuard ]
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'

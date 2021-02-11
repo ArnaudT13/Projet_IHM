@@ -32,14 +32,20 @@ export class HomePage implements OnInit {
     this.userService.emitUserListSubject();*/
   }
 
+  /**
+   * Select the user in the list
+   * @param id The id of the selected user
+   */
   async selectedUser(id: number) {
-    await this.router.navigate(['user-detail', id]);
+    await this.router.navigate(['user-details', id]);
   }
 
+  /**
+   * Logout from the application
+   */
   logout(){
     this.loginService.logout();
     this.router.navigateByUrl('login');
   }
-  
 
 }
