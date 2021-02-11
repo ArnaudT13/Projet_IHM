@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { User } from '../interfaces/user.interface';
 
 @Injectable({
@@ -15,22 +15,6 @@ export class UserService {
   constructor(
     public httpApi: HttpClient
   ) { }
-
-  /**
-   * Function used to authentificate users in the application
-   * @param email The email of the user
-   * @param password The password of the user
-   */
-  login(email: string, password: string): Observable<boolean> {
-    return this.httpApi.post('https://reqres.in/api/login', {
-      email,
-      password
-    }).pipe(
-      tap((response: any) => localStorage.setItem('token', response?.token)), // Used for is-signed-in guard
-      map((response: any) => !!response?.token),
-      catchError(() => of(false))
-    );
-  }
 
   /**
    * Retrieve the user list subject

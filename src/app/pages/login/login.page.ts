@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
+import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class LoginPage implements OnInit {
 
   constructor(
     public router: Router,
-    public userService: UserService,
+    public loginService: LoginService,
     public alertCtrl: AlertController
   ) {}
 
@@ -25,7 +26,7 @@ export class LoginPage implements OnInit {
   }
 
   signIn() {
-    this.login$ = this.userService.login(this.email, this.password).subscribe(
+    this.login$ = this.loginService.login(this.email, this.password).subscribe(
       async isLoggued => {
         if (isLoggued) {
           await this.router.navigateByUrl('home');
