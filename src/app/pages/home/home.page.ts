@@ -28,15 +28,7 @@ export class HomePage implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUserList();
-    /*
-    this.userService.userListSubject.subscribe(
-        (users : User[])=>{
-          this.userList$ = users;
-        }
-    );
-    this.userService.emitUserListSubject();*/
   }
-
 
   /**
    * Logout from the application
@@ -51,10 +43,6 @@ export class HomePage implements OnInit {
    */
   async insertUser(){
     await this.router.navigateByUrl('insert-user');
-  }
-  
-  async updateUser(){
-    await this.router.navigateByUrl('update-user');
   }
 
   /**
@@ -90,7 +78,6 @@ export class HomePage implements OnInit {
           text: 'Cancel',
           role: 'cancel',
           handler: () => {
-            console.log('Cancel clicked');
           }
         }
       ]
