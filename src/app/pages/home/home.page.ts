@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, ToastController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/interfaces/user.interface';
 import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,9 @@ export class HomePage implements OnInit {
   constructor(
     public router: Router,
     public userService: UserService,
+    public utilsService: UtilsService,
     public loginService: LoginService,
+    public toastCtrl: ToastController,
     public actionSheetCtrl: ActionSheetController
   ) {}
 
@@ -74,10 +77,13 @@ export class HomePage implements OnInit {
           }
         },
         {
-          text: 'Destructive',
+          text: 'Delete user',
           role: 'destructive',
           handler: () => {
-            console.log('Delete clicked');
+            let responseDelete: Promise<boolean> = this.userService.deleteUser(id);
+            responseDelete.then((response) => {
+              this.utilsService.manageSuccessErrorToast(this.toastCtrl, response, "User deleted", "User not deleted");
+            });
           }
         },
         {

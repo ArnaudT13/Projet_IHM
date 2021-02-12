@@ -54,13 +54,13 @@ export class UpdateUserPage implements OnInit {
       // Retrieve fom values
       const formValue = this.userForm.value;
       
-      // Use post service
+      // Use put service
       let responseInsert: Promise<boolean> = this.userService.updateUser(
         this.selectedUserId,
         formValue['name'],
         formValue['job']);
 
-      // Manage post response
+      // Manage put response
       responseInsert
         .then((response) => {
             this.utilsService.manageSuccessErrorToast(this.toastCtrl, response, "User updated", "User not updated");

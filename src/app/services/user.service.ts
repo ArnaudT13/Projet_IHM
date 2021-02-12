@@ -82,18 +82,18 @@ export class UserService {
 
   /**
    * Update a user in the application
-   * @param id 
+   * @param id The user id
    * @param name The name of the user
    * @param job The job of the user
    */
   updateUser(id: number, name: string, job: string): Promise<boolean> {
-    // Create post header
+    // Create put header
     let headers = new HttpHeaders();
     headers.append("Accept", 'application/json');
     headers.append('Content-Type', 'application/json' );
     const requestOptions = { headers: headers };
 
-    // Create post body
+    // Create put body
     let putData = {   
       "name": name,
       "job": job
@@ -101,6 +101,24 @@ export class UserService {
 
     return new Promise(resolve => {
         this.httpApi.put(`https://reqres.in/api/users/${id}`, putData, requestOptions)
+        .subscribe(
+          () => {
+            this.getUserList();
+            resolve(true);
+        }, error => {
+          resolve(false);
+          console.log(error);
+      });
+    });
+  }
+
+  /**
+   * Delete a user in the application
+   * @param id The user id
+   */
+  deleteUser(id: number): Promise<boolean> {
+    return new Promise(resolve => {
+        this.httpApi.delete(`https://reqres.in/api/users/${id}`)
         .subscribe(
           () => {
             this.getUserList();
