@@ -3,11 +3,27 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <ion-title>User Details</ion-title>
+    <ion-title>
+      User Details
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-fab horizontal="end" vertical="top" slot="fixed">
+    <ion-fab-button color="dark">
+      <ion-icon name="chevron-down-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list>
+      <ion-fab-button (click)="updateUser()" color="primary">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="deleteUser()" color="danger">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
   <ion-card *ngIf="userDetail$ | async as user">
     <ion-card-header>
       <ion-card-title>{{user.first_name}} {{user.last_name | uppercase}}</ion-card-title>

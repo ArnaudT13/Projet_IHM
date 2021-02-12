@@ -80,4 +80,36 @@ export class UserService {
     });
   }
 
+  /**
+   * Update a user in the application
+   * @param id 
+   * @param name The name of the user
+   * @param job The job of the user
+   */
+  updateUser(id: number, name: string, job: string): Promise<boolean> {
+    // Create post header
+    let headers = new HttpHeaders();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    const requestOptions = { headers: headers };
+
+    // Create post body
+    let putData = {   
+      "name": name,
+      "job": job
+    }
+
+    return new Promise(resolve => {
+        this.httpApi.put(`https://reqres.in/api/users/${id}`, putData, requestOptions)
+        .subscribe(
+          () => {
+            this.getUserList();
+            resolve(true);
+        }, error => {
+          resolve(false);
+          console.log(error);
+      });
+    });
+  }
+
 }

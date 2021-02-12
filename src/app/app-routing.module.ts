@@ -23,6 +23,11 @@ const routes: Routes = [
     canActivate: [ IsSignedInGuard ]
   },
   {
+    path: 'update-user/:id',
+    loadChildren: () => import('./pages/update-user/update-user.module').then( m => m.UpdateUserPageModule),
+    canActivate: [ IsSignedInGuard ]
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
