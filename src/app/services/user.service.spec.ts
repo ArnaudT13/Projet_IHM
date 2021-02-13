@@ -1,8 +1,6 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { async, ComponentFixture, fakeAsync, flushMicrotasks, inject, TestBed, tick } from '@angular/core/testing';
-import { computeStackId } from '@ionic/angular/directives/navigation/stack-utils';
-import { AppComponent } from '../app.component';
-import { User } from '../interfaces/user.interface';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
+
 
 
 import { UserService } from './user.service';

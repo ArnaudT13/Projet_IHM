@@ -32,6 +32,6 @@ export class LoginService {
    * Function used to deconnect user of the application
    */
   logout() {
-    localStorage.removeItem('token');
+    localStorage.clear();
   }
 }

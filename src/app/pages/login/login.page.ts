@@ -33,8 +33,8 @@ export class LoginPage implements OnInit {
         }
         else{
           const alert = await this.alertCtrl.create({
-            header: 'Alert',
-            message: 'Email ou mot de passe invalide',
+            header: 'Authentication error',
+            message: 'Incorrect email or password',
             buttons: ['OK']
           });
           await alert.present();

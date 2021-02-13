@@ -25,9 +25,8 @@
     </ion-item>
   </ion-list>
 </form>
-<ion-button id="signin-button" expand="full"
-      (click)="signIn()" [disabled]="!loginForm.form.valid">
-        Sign in
+<ion-button id="signin-button" expand="full" (click)="signIn()" [disabled]="!loginForm.form.valid" fill="clear" shape="round">
+      Sign in
       <ion-icon slot="end" name="log-in-outline"></ion-icon>
     </ion-button>
 </ion-content>
