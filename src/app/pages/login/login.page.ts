@@ -43,6 +43,10 @@ export class LoginPage implements OnInit {
     );
   }
 
+  register(){
+    this.router.navigateByUrl('register');
+  }
+
   ngOnDestroy(): void {
     this.login$.unsubscribe();
   }

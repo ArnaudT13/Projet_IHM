@@ -25,9 +25,6 @@ export class UserService {
             (response: any) => {
               this.userList = response?.data;
               this.emitUserListSubject();
-            },
-            (error) => {
-              console.log('Erreur ! : ' + error);
             }
         );
   }
@@ -75,7 +72,6 @@ export class UserService {
             resolve(true);
         }, error => {
           resolve(false);
-          console.log(error);
       });
     });
   }
@@ -107,7 +103,6 @@ export class UserService {
             resolve(true);
         }, error => {
           resolve(false);
-          console.log(error);
       });
     });
   }
@@ -125,7 +120,35 @@ export class UserService {
             resolve(true);
         }, error => {
           resolve(false);
-          console.log(error);
+      });
+    });
+  }
+
+   /**
+   * Register a user in the application
+   * @param email The email of the user
+   * @param password The password of the user
+   */
+  register(email: string, password: string): Promise<boolean> {
+    // Create post header
+    let headers = new HttpHeaders();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    const requestOptions = { headers: headers };
+
+    // Create post body
+    let postData = {   
+      "email": email,
+      "password": password
+    }
+
+    return new Promise(resolve => {
+        this.httpApi.post("https://reqres.in/api/register", postData, requestOptions)
+        .subscribe(
+          () => {
+            resolve(true);
+        }, error => {
+          resolve(false);
       });
     });
   }
