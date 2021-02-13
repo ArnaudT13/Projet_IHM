@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActionSheetController, ToastController } from '@ionic/angular';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/interfaces/user.interface';
 import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 import { UtilsService } from 'src/app/services/utils.service';
@@ -53,18 +51,21 @@ export class HomePage implements OnInit {
     const actionSheet = await this.actionSheetCtrl.create({
       buttons: [
         {
+          icon: 'albums',
           text: 'Details',
           handler: () => {
             this.router.navigate(['user-details', id]);
           }
         },
         {
+          icon: 'create',
           text: 'Update user',
           handler: () => {
             this.router.navigate(['update-user', id]);
           }
         },
         {
+          icon:'trash',
           text: 'Delete user',
           role: 'destructive',
           handler: () => {
@@ -75,6 +76,7 @@ export class HomePage implements OnInit {
           }
         },
         {
+          icon: 'close',
           text: 'Cancel',
           role: 'cancel',
           handler: () => {
