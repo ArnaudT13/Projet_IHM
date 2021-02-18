@@ -25,6 +25,6 @@ L'application est composée de **trois services**:
 
 ## Quelques précisions
 - L'entité utilisateur est implémentée via l'interface `user`.  
-- L'interceptor `AuthInterceptor` est mise en place pour éviter les appels répétitifs du token.
+- L'interceptor `AuthInterceptor` est mis en place pour éviter les appels répétitifs du token.
 - La notion de *Guard* d'authentification est implémentée dans la classe `IsSignedInGuard` et permet de rediriger l'utilisateur sur la page `login` en cas non-identification.
 - La classe `CustomValidator` permet de proposer une méthode de vérification de la correspondance *password - confirm password*
