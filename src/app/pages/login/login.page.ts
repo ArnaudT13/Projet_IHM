@@ -25,6 +25,9 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Function used to authenticate the user in the application
+   */
   signIn() {
     this.login$ = this.loginService.login(this.email, this.password).subscribe(
       async isLoggued => {
@@ -43,6 +46,9 @@ export class LoginPage implements OnInit {
     );
   }
 
+  /**
+   * Register the user in the application
+   */
   register(){
     this.router.navigateByUrl('register');
   }
@@ -50,6 +56,4 @@ export class LoginPage implements OnInit {
   ngOnDestroy(): void {
     this.login$.unsubscribe();
   }
-
-
 }

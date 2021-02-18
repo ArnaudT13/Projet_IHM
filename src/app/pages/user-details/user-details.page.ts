@@ -46,6 +46,5 @@ export class UserDetailsPage implements OnInit {
     });
     await this.router.navigateByUrl('home');
   }
-
-
+  
 }

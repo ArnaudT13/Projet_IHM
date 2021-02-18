@@ -8,7 +8,7 @@ export class UtilsService {
 
   constructor() { }
 
-    /**
+  /**
    * Function used to display the toast of an operation sucess or error
    * @param toastCtrl The ToastControler
    * @param status The boolean status : True --> success, False --> error
@@ -53,7 +53,7 @@ export class UtilsService {
   }
 
   /**
-   * Fonction used to display toast eror
+   * Fonction used to display toast error
    * @param toastCtrl The Toast Controller
    * @param infoMesage The message to display
    */

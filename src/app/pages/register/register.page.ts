@@ -49,6 +49,7 @@ export class RegisterPage implements OnInit {
    *  Function related to the register form button
    */
   onSubmitForm () {
+    // Check form validity
     if (!this.registerForm.valid) {
       if(!this.registerForm.controls['email'].valid){
         this.utilsService.manageErrorToast(this.toastCtrl, "Email incorrect")
@@ -60,11 +61,15 @@ export class RegisterPage implements OnInit {
         this.utilsService.manageErrorToast(this.toastCtrl, "Password and Confirm Password don't match")
       }
     } else {
+      // Retrieve form values
       const formValue = this.registerForm.value;
+
+      // Use post service
       this.responseRegistration = this.userService.register(
         formValue['email'],
         formValue['password']);
 
+      // Manage post response
       this.responseRegistration
         .then((response) => {
             this.utilsService.manageSuccessErrorToast(this.toastCtrl, response, "Registration accepted", "Registration not accepted");

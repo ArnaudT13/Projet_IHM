@@ -47,7 +47,7 @@ export class InsertUserPage implements OnInit {
         this.utilsService.manageErrorToast(this.toastCtrl, "Job incorrect")
       }
     } else {
-      // Retrieve fom values
+      // Retrieve form values
       const formValue = this.userForm.value;
       
       // Use post service

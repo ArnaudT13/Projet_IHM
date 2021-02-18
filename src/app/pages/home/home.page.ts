@@ -12,8 +12,6 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class HomePage implements OnInit {
 
-  // User list of the page
-  //userList$: User[];
 
   constructor(
     public router: Router,

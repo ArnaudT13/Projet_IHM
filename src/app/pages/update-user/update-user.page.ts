@@ -44,6 +44,7 @@ export class UpdateUserPage implements OnInit {
    *  Function related to the insert form button
    */
   onSubmitForm () {
+    // Check form validity
     if (!this.userForm.valid) {
       if(!this.userForm.controls['name'].valid){
         this.utilsService.manageErrorToast(this.toastCtrl, "Name incorrect")
@@ -51,7 +52,7 @@ export class UpdateUserPage implements OnInit {
         this.utilsService.manageErrorToast(this.toastCtrl, "Job incorrect")
       }
     } else {
-      // Retrieve fom values
+      // Retrieve form values
       const formValue = this.userForm.value;
       
       // Use put service

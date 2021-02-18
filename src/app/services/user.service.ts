@@ -124,7 +124,7 @@ export class UserService {
     });
   }
 
-   /**
+  /**
    * Register a user in the application
    * @param email The email of the user
    * @param password The password of the user

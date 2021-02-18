@@ -5,7 +5,7 @@ export class CustomValidator {
     /**
      * Check if the password and confirmPassword are the same
      * @param group The formGroup
-     * @returns
+     * @returns The response of the match between the two passwords
      */
     static checkPasswords(group: FormGroup) {
         const password = group.get('password').value;
